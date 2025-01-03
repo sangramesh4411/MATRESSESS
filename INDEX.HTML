@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mattresses & Pillows - Order Now</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap&libraries=places" async defer></script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to BALA MATTRESSES AND PILLOWS</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="checkout.html">Checkout</a>
+        </nav>
+    </header>
+
+    <section class="products">
+        <h2>Featured Products</h2>
+        <div class="product">
+            <img src="1.jpg" alt="Mattress">
+            <h3>Premium Mattress</h3>
+            <h3>cotton mattress</h3>
+            <p>$18000</p>
+            <P>$3000</P>
+            <a href="checkout.html?product=mattress&price=499.99">Buy Now</a>
+        </div>
+        <div class="product">
+            <img src="2.jpg" alt="Pillow">
+            <h3>Memory Foam Pillow</h3>
+            <h4>cotton pillows</h4>
+            <p>$399</p>
+            <P>$100</P>
+            <a href="checkout.html?product=pillow&price=39.99">Buy Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Comfortable Sleep Store</p>
+    </footer>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Comfortable Sleep Store</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap&libraries=places" async defer></script>
+    <script src="assets/js/checkout.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="checkout.html">Checkout</a>
+        </nav>
+    </header>
+
+    <section class="checkout-form">
+        <h2>Ilavam panju matresses</h2>
+        <h2>Ilavam panju pillows</h2>
+        <h2>Cotton mattresses</h2>
+        <h2>Cotton pillows</h2>
+        <form action="order/process_order.php" method="POST">
+            <input type="hidden" name="product" value="<?= $_GET['product'] ?>">
+            <input type="hidden" name="price" value="<?= $_GET['price'] ?>">
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="address">Shipping Address</label>
+            <textarea id="address" name="address" required></textarea>
+
+            <!-- Google Maps -->
+            <div id="map" style="height: 400px; width: 100%;"></div>
+            <br>
+            <input type="text" id="location-input" placeholder="Search for location">
+            <button type="submit">Place Order</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Comfortable Sleep Store</p>
+    </footer>
+</body>
+</html>
